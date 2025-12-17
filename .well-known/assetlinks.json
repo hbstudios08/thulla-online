@@ -4,9 +4,8 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.ahstudios.thulla",
-      "sha256_cert_fingerprints": [
-        E1:D4:E2:E7:38:F9:E5:74:60:07:4F:60:8A:7A:97:32:A1:C1:EA:A0:50:83:B1:8C:C2:A5:4F:19:07:B2:91:9C
-      ]
+      "sha256_cert_fingerprints":
+        ["E1:D4:E2:E7:38:F9:E5:74:60:07:4F:60:8A:7A:97:32:A1:C1:EA:A0:50:83:B1:8C:C2:A5:4F:19:07:B2:91:9C"]
     }
   }
 ]

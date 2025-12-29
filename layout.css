@@ -134,3 +134,31 @@ body{
 @media (max-width: 1200px){
   .content{grid-template-columns:1fr}
 }
+
+/* ===============================
+   Game action buttons (below screen)
+   =============================== */
+
+.game-actions {
+  width: 100%;
+  max-width: 960px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end; /* right aligned */
+  padding-right: 4px;
+}
+
+.fs-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.fs-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+

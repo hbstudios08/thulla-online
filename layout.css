@@ -144,3 +144,40 @@ body{
 @media (max-width: 1200px){
   .content{grid-template-columns:1fr}
 }
+
+/* ===============================
+   SHOW UNITY LOADING BAR PROPERLY
+   =============================== */
+
+/* Make game frame a stacking context */
+.game-frame {
+  position: relative;
+}
+
+/* Canvas stays at base layer */
+.game-frame #unity-canvas {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Loading UI must be ABOVE canvas */
+.game-frame #unity-loading-bar {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28, 28, 28, 0.85); /* subtle dark overlay */
+}
+
+/* Progress bar visibility */
+#unity-progress-bar-empty {
+  display: block !important;
+  width: 70% !important;
+  height: 18px !important;
+}
+
+#unity-progress-bar-full {
+  height: 100% !important;
+}

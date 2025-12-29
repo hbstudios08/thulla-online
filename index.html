@@ -5,10 +5,7 @@
   <title>Thulla Multiplayer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Unity default CSS -->
   <link rel="stylesheet" href="TemplateData/style.css">
-
-  <!-- Custom layout -->
   <link rel="stylesheet" href="layout.css">
 </head>
 
@@ -32,9 +29,8 @@
     <main class="content">
       <section class="game-stage">
         <div class="game-frame">
-          <!-- UNITY VIEW (UNCHANGED) -->
           <div id="unity-container" class="unity-desktop">
-            <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
+            <canvas id="unity-canvas" width="960" height="600"></canvas>
 
             <div id="unity-loading-bar">
               <div id="unity-logo"></div>
@@ -64,11 +60,6 @@
           <h2>Controls</h2>
           <p>Create or join a room, then use the mic button to talk.</p>
         </div>
-
-        <div class="card small">
-          <h2>Build</h2>
-          <p class="muted">960 × 600</p>
-        </div>
       </aside>
     </main>
 
@@ -78,7 +69,7 @@
     </footer>
   </div>
 
-  <!-- Unity loader script MUST remain exactly as Unity generated -->
+  <!-- Unity loader script stays exactly as Unity generated -->
 
   <script src="app.js"></script>
 </body>

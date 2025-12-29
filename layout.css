@@ -1,7 +1,6 @@
 :root{
   --bg1:#0b1020;
   --bg2:#070812;
-  --card:rgba(255,255,255,.06);
   --stroke:rgba(255,255,255,.10);
   --text:rgba(255,255,255,.92);
   --muted:rgba(255,255,255,.62);
@@ -18,38 +17,12 @@ body{
     linear-gradient(180deg,var(--bg1),var(--bg2));
 }
 
-/* --- IMPORTANT FIX: create a sane stacking context --- */
 .shell{min-height:100%;display:flex;flex-direction:column;position:relative;isolation:isolate}
-.topbar{position:sticky;top:0;z-index:50;
+.topbar{position:relative;z-index:50;
   display:flex;justify-content:space-between;align-items:center;
   padding:14px 16px;
   border-bottom:1px solid var(--stroke);
   background:rgba(0,0,0,.22);
-  backdrop-filter: blur(10px);
-}
-
-.brand{display:flex;align-items:center;gap:12px}
-.mark{
-  width:38px;height:38px;border-radius:12px;
-  display:grid;place-items:center;
-  font-weight:800;
-  background:linear-gradient(180deg, rgba(128,90,213,.60), rgba(128,90,213,.18));
-}
-.title{font-weight:800}
-.sub{font-size:12px;color:var(--muted)}
-
-.actions{display:flex;gap:10px;align-items:center}
-.pill{
-  padding:8px 10px;border-radius:999px;font-size:12px;
-  border:1px solid var(--stroke);
-  background:rgba(255,255,255,.06);
-  color:var(--muted);
-}
-.btn{
-  padding:9px 14px;border-radius:12px;
-  background:rgba(255,255,255,.08);
-  border:1px solid var(--stroke);
-  color:white;cursor:pointer;
 }
 
 .content{
@@ -61,91 +34,64 @@ body{
   gap:16px;
   flex:1;
   position:relative;
-  z-index:10; /* keep above any weird absolute layers */
+  z-index:20;
 }
 
 .game-stage{
-  height:calc(100vh - 140px);
   display:grid;
   place-items:center;
-  overflow:hidden;
   position:relative;
   z-index:10;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:var(--radius);
-  padding:14px;
 }
 
-/* Frame is the ONLY allowed "viewport" for Unity */
 .game-frame{
   width:960px;
   height:600px;
-  transform-origin:center center;
   position:relative;
   z-index:10;
+  background:#1c1c1c;
   border-radius:14px;
   overflow:hidden;
   box-shadow:0 18px 55px rgba(0,0,0,.45);
-  border:1px solid rgba(255,255,255,.10);
 }
 
-/* ---- CRITICAL OVERRIDES (Unity template sometimes sets absolute/fixed) ---- */
+/* === CRITICAL UNITY CONSTRAINT FIX === */
 .game-frame #unity-container{
-  width:100% !important;
-  height:100% !important;
-  position:relative !important;   /* kill absolute that covers page */
-  left:auto !important;
-  top:auto !important;
-  right:auto !important;
-  bottom:auto !important;
+  width:960px !important;
+  height:600px !important;
+  position:relative !important;
+  inset:auto !important;
   transform:none !important;
-  z-index:1 !important;
 }
 
 .game-frame #unity-canvas{
-  width:100% !important;
-  height:100% !important;
-  position:relative !important;
-  z-index:1 !important;
+  width:960px !important;
+  height:600px !important;
+  display:block;
 }
 
-/* Loading bar + warnings must stay inside frame, not on top of header/sidebar */
-.game-frame #unity-loading-bar,
-.game-frame #unity-warning,
-.game-frame #unity-footer{
+.game-frame #unity-loading-bar{
   position:absolute !important;
-  left:0 !important;
-  right:0 !important;
+  inset:0 !important;
   z-index:2 !important;
 }
-.game-frame #unity-loading-bar{top:0 !important}
-.game-frame #unity-footer{bottom:0 !important}
 
-/* Sidebar */
-.sidebar{display:flex;flex-direction:column;gap:14px;position:relative;z-index:20}
+body > #unity-container,
+body > canvas{
+  display:none !important;
+}
+
+.sidebar{position:relative;z-index:30}
 .card{
   background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.08);
   border-radius:var(--radius);
   padding:14px;
 }
-.card h2{margin:0 0 8px;font-size:14px}
-.card p{margin:0;font-size:13px;color:var(--muted);line-height:1.5}
-.card.small p{font-size:12px}
 
 .footer{
   position:relative;
-  z-index:30;
-  display:flex;justify-content:space-between;
+  z-index:40;
   padding:10px 16px;
   border-top:1px solid var(--stroke);
   font-size:12px;
-  background:rgba(0,0,0,.14);
-}
-
-/* Mobile: stack + still scale */
-@media(max-width:980px){
-  .content{grid-template-columns:1fr}
-  .game-stage{height:auto}
 }

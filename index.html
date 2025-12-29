@@ -5,88 +5,80 @@
   <title>Thulla Multiplayer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Unity generated CSS (keep if exists) -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Unity default CSS -->
+  <link rel="stylesheet" href="TemplateData/style.css">
 
-  <!-- Custom UI Layout -->
+  <!-- Custom layout -->
   <link rel="stylesheet" href="layout.css">
 </head>
 
 <body>
-  <div class="page">
-
+  <div class="shell">
     <header class="topbar">
       <div class="brand">
-        <div class="brand-mark">T</div>
+        <div class="mark">T</div>
         <div>
-          <div class="brand-title">Thulla Multiplayer</div>
-          <div class="brand-subtitle">WebGL • Voice • Multiplayer</div>
+          <div class="title">Thulla Multiplayer</div>
+          <div class="sub">WebGL • Voice • Multiplayer</div>
         </div>
       </div>
 
-      <div class="topbar-actions">
-        <div class="chip" id="net-status">Status: Loading…</div>
+      <div class="actions">
+        <span class="pill" id="net-status">Loading…</span>
         <button class="btn" id="btn-fullscreen">Fullscreen</button>
       </div>
     </header>
 
-    <main class="layout">
-      <section class="stage">
+    <main class="content">
+      <section class="game-stage">
+        <div class="game-frame">
+          <!-- UNITY VIEW (UNCHANGED) -->
+          <div id="unity-container" class="unity-desktop">
+            <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
 
-        <!-- UNITY VIEW (UNCHANGED) -->
-        <div id="unity-container" class="unity-desktop">
-          <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
-
-          <div id="unity-loading-bar">
-            <div id="unity-logo"></div>
-            <div id="unity-progress-bar-empty">
-              <div id="unity-progress-bar-full"></div>
+            <div id="unity-loading-bar">
+              <div id="unity-logo"></div>
+              <div id="unity-progress-bar-empty">
+                <div id="unity-progress-bar-full"></div>
+              </div>
             </div>
-            <div class="loading-text">Loading game…</div>
-          </div>
 
-          <div id="unity-warning"></div>
+            <div id="unity-warning"></div>
 
-          <div id="unity-footer">
-            <div id="unity-logo-title-footer"></div>
-            <div id="unity-fullscreen-button"></div>
-            <div id="unity-build-title">Thulla Multiplayer</div>
+            <div id="unity-footer">
+              <div id="unity-logo-title-footer"></div>
+              <div id="unity-fullscreen-button"></div>
+              <div id="unity-build-title">Thulla Multiplayer</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <aside class="side">
-        <div class="panel">
-          <div class="panel-title">Quick Help</div>
-          <div class="panel-text">
-            Use headphones for voice chat. First load may take longer due to WebGL size.
-          </div>
-
-          <div class="panel-divider"></div>
-
-          <div class="panel-title">Controls</div>
-          <ul class="panel-list">
-            <li>Create or join a room</li>
-            <li>Use mic button for voice</li>
-            <li>Fullscreen recommended</li>
-          </ul>
+      <aside class="sidebar">
+        <div class="card">
+          <h2>Quick Help</h2>
+          <p>Use headphones for voice chat. Fullscreen gives best experience.</p>
         </div>
 
-        <div class="panel panel-mini">
-          <div class="panel-title">Build</div>
-          <div class="panel-text subtle">v1.63 • AHSTUDIOS</div>
+        <div class="card">
+          <h2>Controls</h2>
+          <p>Create or join a room, then use the mic button to talk.</p>
+        </div>
+
+        <div class="card small">
+          <h2>Build</h2>
+          <p class="muted">960 × 600</p>
         </div>
       </aside>
     </main>
 
-    <footer class="bottombar">
-      <div>© AHSTUDIOS</div>
-      <div>Chrome / Edge recommended</div>
+    <footer class="footer">
+      <span>© AHSTUDIOS</span>
+      <span class="muted">Chrome / Edge recommended</span>
     </footer>
-
   </div>
 
-  <!-- Unity loader script stays here -->
+  <!-- Unity loader script MUST remain exactly as Unity generated -->
 
   <script src="app.js"></script>
 </body>

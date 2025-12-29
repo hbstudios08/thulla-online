@@ -28,7 +28,8 @@
 
     <div class="content">
       <main class="stage">
-        <div id="unity-container" class="unity-desktop">
+        <div class="unity-frame" aria-label="Game">
+          <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
@@ -43,22 +44,23 @@
         <div id="unity-build-title">Thulla Multiplayer</div>
       </div>
     </div>
+        </div>
       </main>
 
       <aside class="sidebar">
         <section class="card">
           <h2>Quick Help</h2>
-          <p>For best voice chat, use headphones. If the first load is slow, refresh once after it finishes caching.</p>
+          <p>Use headphones for voice. Fullscreen is best for a clean fit.</p>
         </section>
 
         <section class="card">
           <h2>Controls</h2>
-          <p>Create or join a room, then use the mic button to talk. Fullscreen gives the cleanest fit.</p>
+          <p>Create or join a room, then use the mic button to talk.</p>
         </section>
 
         <section class="card small">
           <h2>Build</h2>
-          <p class="muted">v1.63 • AHSTUDIOS</p>
+          <p class="muted">960×600</p>
         </section>
       </aside>
     </div>
@@ -175,7 +177,6 @@
       document.body.appendChild(script);
 
     </script>
-
   <script src="app.js"></script>
 </body>
 </html>

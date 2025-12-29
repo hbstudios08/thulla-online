@@ -18,7 +18,7 @@ body{
     linear-gradient(180deg,var(--bg1),var(--bg2));
 }
 
-/* Shell layout (doesn't touch Unity canvas sizing) */
+/* Shell layout (doesn't touch Unity canvas sizing rules from TemplateData/style.css) */
 .shell{min-height:100%;display:flex;flex-direction:column}
 .topbar{
   display:flex;justify-content:space-between;align-items:center;
@@ -58,26 +58,33 @@ body{
   margin:auto;
   padding:16px;
   display:grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: minmax(0,1fr) 320px; /* prevent overflow */
   gap:16px;
   flex:1;
   align-items:start;
 }
 
+/* IMPORTANT: Don't center with flex (Unity template may use absolute positioning).
+   We only give a nice frame and keep Unity's own sizing. */
 .stage{
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.08);
   border-radius:var(--radius);
   padding:14px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  overflow:auto;            /* if Unity container is wider, it scrolls instead of overlapping sidebar */
+  text-align:center;        /* centers inline-block unity container */
+  min-width:0;
+}
+
+/* Make unity container behave like a "card" centered in the stage */
+#unity-container{
+  display:inline-block;
+  max-width:100%;
+  border-radius:14px;
   overflow:hidden;
 }
 
-/* Only visual rounding; doesn't change Unity element layout rules */
-#unity-container{border-radius:14px;overflow:hidden}
-
+/* Sidebar */
 .sidebar{display:flex;flex-direction:column;gap:14px}
 .card{
   background:rgba(255,255,255,.05);
@@ -99,4 +106,5 @@ body{
 
 @media (max-width: 980px){
   .content{grid-template-columns:1fr}
+  .stage{overflow:visible}
 }

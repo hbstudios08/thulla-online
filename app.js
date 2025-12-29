@@ -4,20 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (status) status.textContent = "Loading…";
 
-  // Fullscreen button created by Unity template
-  const tryWire = () => {
+  const wire = () => {
     const unityFS = document.getElementById("unity-fullscreen-button");
-    if (unityFS) {
-      if (status) status.textContent = "Ready";
-      fsBtn?.addEventListener("click", () => unityFS.click());
-      return true;
-    }
-    return false;
+    if (!unityFS) return false;
+    if (status) status.textContent = "Ready";
+    fsBtn?.addEventListener("click", () => unityFS.click());
+    return true;
   };
 
-  if (!tryWire()) {
+  if (!wire()) {
     const t = setInterval(() => {
-      if (tryWire()) clearInterval(t);
+      if (wire()) clearInterval(t);
     }, 350);
   }
 });

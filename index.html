@@ -14,7 +14,7 @@
     <header class="topbar">
       <div class="brand">
         <div class="mark">T</div>
-        <div class="titles">
+        <div>
           <div class="title">Thulla Multiplayer</div>
           <div class="sub">WebGL • Voice • Multiplayer</div>
         </div>
@@ -26,9 +26,9 @@
       </div>
     </header>
 
-    <div class="content">
-      <main class="stage">
-        <div class="unity-frame" aria-label="Game">
+    <main class="content">
+      <section class="game-stage">
+        <div class="game-frame" id="game-frame">
           <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -45,25 +45,23 @@
       </div>
     </div>
         </div>
-      </main>
+      </section>
 
       <aside class="sidebar">
-        <section class="card">
+        <div class="card">
           <h2>Quick Help</h2>
-          <p>Use headphones for voice. Fullscreen is best for a clean fit.</p>
-        </section>
-
-        <section class="card">
+          <p>Use headphones for voice chat. Fullscreen gives best experience.</p>
+        </div>
+        <div class="card">
           <h2>Controls</h2>
           <p>Create or join a room, then use the mic button to talk.</p>
-        </section>
-
-        <section class="card small">
+        </div>
+        <div class="card small">
           <h2>Build</h2>
-          <p class="muted">960×600</p>
-        </section>
+          <p class="muted">Responsive (base 960×600)</p>
+        </div>
       </aside>
-    </div>
+    </main>
 
     <footer class="footer">
       <span>© AHSTUDIOS</span>
@@ -71,6 +69,7 @@
     </footer>
   </div>
 
+  <!-- Original Unity loader/scripts kept below -->
 <script>
       var canvas = document.querySelector("#unity-canvas");
 

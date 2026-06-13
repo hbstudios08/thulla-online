@@ -4,7 +4,10 @@
     "details": [
       {
         "appID": "FTN38CTT4J.com.ahstudios.thulla",
-        "paths": [  "/join/*" ]
+        "paths": [ 
+          "/join",
+          "/join*"
+        ]
       }
     ]
   }

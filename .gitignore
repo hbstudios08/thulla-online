@@ -1,1 +1,5 @@
-.well-known
+.well-known/
+app-ads.txt
+CNAME
+privacy.html
+.nojekyll

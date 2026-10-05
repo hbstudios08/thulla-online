@@ -1,6 +1,7 @@
 google.com, pub-8063784049959607, DIRECT, f08c47fec0942fa0
 google.com, pub-5238523837166357, DIRECT, f08c47fec0942fa0
 vungle.com, 6ac0113cdc021dbec1ec7737, DIRECT, c107d686becd2d77
+smaato.com, 1100059345, RESELLER, 07bcf65f187117b4
 xandr.com, 7353, RESELLER
 appnexus.com, 6849, RESELLER
 pubmatic.com, 166385, RESELLER, 5d62403b186f2ace

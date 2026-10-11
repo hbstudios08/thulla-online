@@ -52,8 +52,8 @@
 
       <div class="actions">
         <span class="topbar-stores">
-          <a class="btn" href="https://play.google.com/store/apps/details?id=YOUR.PACKAGE.NAME" target="_blank" rel="noopener">Android</a>
-          <a class="btn" href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" rel="noopener">iOS</a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.ahstudios.thulla" target="_blank" rel="noopener">Android</a>
+          <a class="btn" href="https://apps.apple.com/app/id6777625808" target="_blank" rel="noopener">iOS</a>
         </span>
         <span class="pill" id="net-status">Loading…</span>
         <button class="btn" id="btn-fullscreen" type="button">Fullscreen</button>

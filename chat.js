@@ -25,6 +25,7 @@ const FIREBASE_CONFIG = {
   function setStatus(t) { statusEl.textContent = t || ""; }
 
   if (typeof firebase === "undefined" || FIREBASE_CONFIG.apiKey === "YOUR_API_KEY") {
+    onlineEl.textContent = "offline";
     setStatus("Chat not configured yet (add Firebase config in chat.js).");
     input.disabled = true; form.querySelector("button").disabled = true;
     return;
@@ -67,7 +68,21 @@ const FIREBASE_CONFIG = {
     if (atBottom) box.scrollTop = box.scrollHeight;
   }
 
-  auth.signInAnonymously().catch(() => setStatus("Could not connect to chat."));
+  // If nothing connects within 10s, say what to check instead of hanging
+  let connected = false;
+  setTimeout(() => {
+    if (!connected) {
+      onlineEl.textContent = "offline";
+      setStatus("Can't reach chat. Check databaseURL in chat.js, Anonymous sign-in, and Authorized domains (see browser console).");
+      console.error("[chat] no connection after 10s. databaseURL =", FIREBASE_CONFIG.databaseURL);
+    }
+  }, 10000);
+
+  auth.signInAnonymously().catch((err) => {
+    console.error("[chat] anonymous sign-in failed:", err.code, err.message);
+    onlineEl.textContent = "offline";
+    setStatus("Sign-in failed (" + err.code + "). Enable Anonymous auth and add your domain to Authorized domains.");
+  });
 
   auth.onAuthStateChanged((user) => {
     if (!user) return;
@@ -76,15 +91,22 @@ const FIREBASE_CONFIG = {
 
     // messages
     const ref = db.ref("chat/global").orderByChild("ts").limitToLast(SHOW_LAST);
-    ref.on("child_added", (snap) => addMessage(snap.val(), uid));
+    ref.on("child_added", (snap) => addMessage(snap.val(), uid), (err) => {
+      console.error("[chat] message read denied:", err.code, err.message);
+      setStatus("Can't read messages. Publish firebase-rules.json.");
+    });
 
     // presence (online count)
     const me = db.ref("presence/" + uid);
     db.ref(".info/connected").on("value", (s) => {
-      if (s.val() === true) { me.onDisconnect().remove(); me.set(true); }
+      if (s.val() === true) { connected = true; me.onDisconnect().remove(); me.set(true); }
     });
     db.ref("presence").on("value", (s) => {
       onlineEl.textContent = s.numChildren() + " online";
+    }, (err) => {
+      console.error("[chat] presence read denied:", err.code, err.message);
+      onlineEl.textContent = "offline";
+      setStatus("Database rules blocked reading. Publish firebase-rules.json.");
     });
 
     // sending

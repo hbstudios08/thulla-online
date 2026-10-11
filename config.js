@@ -8,7 +8,7 @@ window.THULLA_LINKS = {
 
   // Community
   whatsapp:  "https://chat.whatsapp.com/LfpTwCjOGQ50oLdOvhc8dk",
-  discord:   "https://discord.gg/YOUR_INVITE",
+  discord:   "https://discord.gg/Uf2tZAFqm",
 
   // Web player (used by the invite page)
   webPlayer: "/index.html",

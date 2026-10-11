@@ -22,9 +22,14 @@
     .btn{display:block;margin:8px 0;padding:13px 16px;border-radius:12px;text-decoration:none;
       font-weight:700;font-size:16px;background:#2b6cff;color:#fff}
     .btn.alt{background:transparent;border:1px solid rgba(255,255,255,.25)}
+    .community{margin-top:18px;display:flex;gap:8px}
+    .community a{flex:1;padding:11px 8px;border-radius:12px;text-decoration:none;font-weight:600;font-size:14px;
+      color:inherit;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05)}
+    .community-title{margin-top:20px;font-size:13px;opacity:.7}
     .stores{margin-top:18px;font-size:13px;opacity:.8}
     .stores a{color:inherit;margin:0 6px}
   </style>
+  <script src="/config.js"></script>
 </head>
 <body>
 <main>
@@ -34,6 +39,11 @@
   <div class="room" id="room"></div>
   <a class="btn" id="web" href="/index.html">Play in browser</a>
   <a class="btn alt" id="app" href="#">Open in app</a>
+  <div class="community-title">Find players and game times</div>
+  <div class="community" style="margin-top:8px">
+    <a id="wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a id="dc" href="#" target="_blank" rel="noopener">🎮 Discord</a>
+  </div>
   <div class="stores" id="stores">
     Get the app:
     <a id="play" href="#">Google Play</a> · <a id="ios" href="#">App Store</a>
@@ -42,44 +52,39 @@
 
 <script>
 (function () {
-  // ===== EDIT THESE =====
-  var CONFIG = {
-    webPlayer: "/index.html",       // your WebGL page
-    param: "code",                  // query parameter carrying the room code
-    playStore: "https://play.google.com/store/apps/details?id=com.ahstudios.thulla",
-    appStore: "https://apps.apple.com/app/id6777625808"
-  };
-  // ======================
-
+  var L = window.THULLA_LINKS || {};   // all links come from /config.js
   var $ = function (id) { return document.getElementById(id); };
 
-  var code = (new URLSearchParams(location.search).get(CONFIG.param) ||
+  var param = L.roomParam || "code";
+  var code = (new URLSearchParams(location.search).get(param) ||
               new URLSearchParams(location.search).get("room") || "").trim();
   if (!/^[A-Za-z0-9_-]{1,32}$/.test(code)) code = "";
   $("room").textContent = code;
 
   // Play in browser: only goes when the player clicks, and carries the room code
-  var web = new URL(CONFIG.webPlayer, location.origin);
-  if (code) web.searchParams.set(CONFIG.param, code);
+  var web = new URL(L.webPlayer || "/index.html", location.origin);
+  if (code) web.searchParams.set(param, code);
   $("web").href = web.toString();
+
+  // Community + store links
+  $("wa").href = L.whatsapp || "#";
+  $("dc").href = L.discord || "#";
+  $("play").href = L.playStore || "#";
+  $("ios").href = L.appStore || "#";
 
   // Open in app: store link chosen by platform
   var ua = navigator.userAgent || "";
   var isAndroid = /Android/i.test(ua);
   var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
-  $("play").href = CONFIG.playStore;
-  $("ios").href = CONFIG.appStore;
-
   if (isAndroid) {
-    $("app").href = CONFIG.playStore;
+    $("app").href = L.playStore || "#";
     $("stores").style.display = "none";
   } else if (isIOS) {
-    $("app").href = CONFIG.appStore;
+    $("app").href = L.appStore || "#";
     $("stores").style.display = "none";
   } else {
-    // desktop: no single store applies, show both links instead of the button
-    $("app").style.display = "none";
+    $("app").style.display = "none";   // desktop: show both store links instead
   }
 })();
 </script>

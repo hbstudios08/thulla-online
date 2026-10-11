@@ -17,6 +17,24 @@
     .store-btn small{display:block;font-size:11px;opacity:.75;line-height:1.1}
     .store-btn strong{display:block;font-size:16px;line-height:1.2}
     .topbar-stores{display:flex;gap:8px}
+    .chat-card{display:flex;flex-direction:column}
+    .chat-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .chat-head h2{margin:0}
+    #chat-online{font-size:12px;opacity:.8}
+    #chat-messages{height:260px;overflow-y:auto;margin:10px 0;padding:8px;border-radius:10px;
+      background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.1);font-size:14px;line-height:1.35;
+      word-break:break-word}
+    .chat-row{margin-bottom:6px}
+    .chat-row.mine{opacity:.95}
+    .chat-name{font-weight:600}
+    #chat-form{display:flex;gap:6px}
+    #chat-form input{min-width:0;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.2);
+      background:rgba(0,0,0,.25);color:inherit;font:inherit}
+    #chat-input{flex:1}
+    #chat-name{width:100%;margin-bottom:6px;box-sizing:border-box;padding:6px 10px;border-radius:8px;
+      border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.25);color:inherit;font:inherit;font-size:13px}
+    #chat-form button{padding:8px 14px;border-radius:8px;border:0;cursor:pointer;font:inherit;font-weight:600}
+    #chat-status{min-height:16px;font-size:12px;opacity:.8;margin-top:4px}
     @media (max-width:640px){.topbar-stores{display:none}}
   </style>
 
@@ -34,8 +52,8 @@
 
       <div class="actions">
         <span class="topbar-stores">
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.ahstudios.thulla" target="_blank" rel="noopener">Android</a>
-          <a class="btn" href="https://apps.apple.com/app/id6777625808" target="_blank" rel="noopener">iOS</a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=YOUR.PACKAGE.NAME" target="_blank" rel="noopener">Android</a>
+          <a class="btn" href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" rel="noopener">iOS</a>
         </span>
         <span class="pill" id="net-status">Loading…</span>
         <button class="btn" id="btn-fullscreen" type="button">Fullscreen</button>
@@ -77,6 +95,16 @@
               <span><small>Download on the</small><strong>App Store</strong></span>
             </a>
           </div>
+        </div>
+        <div class="card chat-card">
+          <div class="chat-head"><h2>Live Chat</h2><span id="chat-online">connecting…</span></div>
+          <div id="chat-messages" aria-live="polite"></div>
+          <input id="chat-name" maxlength="20" placeholder="Your nickname" aria-label="Nickname">
+          <form id="chat-form" autocomplete="off">
+            <input id="chat-input" maxlength="200" placeholder="Say hi or find a game…" aria-label="Message">
+            <button type="submit">Send</button>
+          </form>
+          <div id="chat-status"></div>
         </div>
         <div class="card">
           <h2>Quick Help</h2>
@@ -206,6 +234,10 @@
       document.body.appendChild(script);
 
     </script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="chat.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+{
+  "rules": {
+    "chat": {
+      "global": {
+        ".read": true,
+        ".indexOn": ["ts"],
+        "$id": {
+          ".write": "auth != null && !data.exists()",
+          ".validate": "newData.hasChildren(['name','text','uid','ts']) && newData.child('text').isString() && newData.child('text').val().length > 0 && newData.child('text').val().length <= 200 && newData.child('name').isString() && newData.child('name').val().length > 0 && newData.child('name').val().length <= 20 && newData.child('uid').val() === auth.uid && newData.child('ts').val() === now",
+          "$other": { ".validate": false }
+        }
+      }
+    },
+    "presence": {
+      ".read": true,
+      "$uid": {
+        ".write": "auth != null && auth.uid === $uid",
+        ".validate": "newData.val() === true"
+      }
+    }
+  }
+}

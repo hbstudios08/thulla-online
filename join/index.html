@@ -30,11 +30,11 @@
 <main>
   <div class="mark">T</div>
   <h1>Joining Thulla</h1>
-  <p id="msg">Opening the game…</p>
+  <p id="msg">Choose how you want to join.</p>
   <div class="room" id="room"></div>
   <a class="btn" id="web" href="/index.html">Play in browser</a>
   <a class="btn alt" id="app" href="#">Open in app</a>
-  <div class="stores">
+  <div class="stores" id="stores">
     Get the app:
     <a id="play" href="#">Google Play</a> · <a id="ios" href="#">App Store</a>
   </div>
@@ -44,73 +44,42 @@
 (function () {
   // ===== EDIT THESE =====
   var CONFIG = {
-    androidPackage: "YOUR.PACKAGE.NAME",
     webPlayer: "/index.html",       // your WebGL page
     param: "code",                  // query parameter carrying the room code
-    scheme: "",                     // optional custom scheme (e.g. "thulla"); leave "" to use your https link
-    playStore: "https://play.google.com/store/apps/details?id=YOUR.PACKAGE.NAME",
-    appStore: "https://apps.apple.com/app/idYOUR_APP_ID",
-    waitMs: 1800
+    playStore: "https://play.google.com/store/apps/details?id=com.ahstudios.thulla",
+    appStore: "https://apps.apple.com/app/id6777625808"
   };
   // ======================
 
   var $ = function (id) { return document.getElementById(id); };
-  var msg = $("msg");
 
   var code = (new URLSearchParams(location.search).get(CONFIG.param) ||
               new URLSearchParams(location.search).get("room") || "").trim();
   if (!/^[A-Za-z0-9_-]{1,32}$/.test(code)) code = "";
   $("room").textContent = code;
 
+  // Play in browser: only goes when the player clicks, and carries the room code
   var web = new URL(CONFIG.webPlayer, location.origin);
   if (code) web.searchParams.set(CONFIG.param, code);
-  var webUrl = web.toString();
+  $("web").href = web.toString();
 
+  // Open in app: store link chosen by platform
   var ua = navigator.userAgent || "";
   var isAndroid = /Android/i.test(ua);
   var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-  var isMobile = isAndroid || isIOS;
 
-  // Android intent: opens the app if installed, else goes to the web player
-  var qs = code ? "?" + CONFIG.param + "=" + encodeURIComponent(code) : "";
-  var intentTarget = CONFIG.scheme
-    ? "intent://join" + qs + "#Intent;scheme=" + CONFIG.scheme
-    : "intent://" + location.host + location.pathname + qs + "#Intent;scheme=https";
-  var androidIntent = intentTarget + ";package=" + CONFIG.androidPackage +
-    ";S.browser_fallback_url=" + encodeURIComponent(webUrl) + ";end";
-
-  $("web").href = webUrl;
   $("play").href = CONFIG.playStore;
   $("ios").href = CONFIG.appStore;
-  if (isAndroid) $("app").href = androidIntent;
-  else if (isIOS && CONFIG.scheme) $("app").href = CONFIG.scheme + "://join" + qs;
-  else $("app").style.display = "none";
-
-  var went = false;
-  function goWeb() {
-    if (went) return;
-    went = true;
-    msg.textContent = "Starting the game in your browser…";
-    location.replace(webUrl);
-  }
-
-  // Desktop: no app, go straight to the web player
-  if (!isMobile) { setTimeout(goWeb, 400); return; }
-
-  var left = false;
-  document.addEventListener("visibilitychange", function () { if (document.hidden) left = true; });
-  window.addEventListener("pagehide", function () { left = true; });
-  window.addEventListener("blur", function () { left = true; });
 
   if (isAndroid) {
-    location.href = androidIntent;
-    setTimeout(function () { if (!left) goWeb(); }, CONFIG.waitMs);
-  } else if (isIOS && CONFIG.scheme) {
-    location.href = CONFIG.scheme + "://join" + qs;
-    setTimeout(function () { if (!left) goWeb(); }, CONFIG.waitMs);
+    $("app").href = CONFIG.playStore;
+    $("stores").style.display = "none";
+  } else if (isIOS) {
+    $("app").href = CONFIG.appStore;
+    $("stores").style.display = "none";
   } else {
-    // iOS with Universal Links: if this page loaded, the app is not installed
-    goWeb();
+    // desktop: no single store applies, show both links instead of the button
+    $("app").style.display = "none";
   }
 })();
 </script>

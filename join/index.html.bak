@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join a Thulla game</title>
+  <link rel="shortcut icon" href="/TemplateData/favicon.ico">
+  <style>
+    :root{color-scheme:dark}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0f1218;color:#f2f4f8}
+    main{width:100%;max-width:380px;text-align:center}
+    .mark{width:56px;height:56px;margin:0 auto 14px;border-radius:14px;display:grid;place-items:center;
+      font-size:28px;font-weight:800;background:#2b6cff}
+    h1{margin:0 0 6px;font-size:22px}
+    p{margin:0 0 14px;opacity:.8;font-size:15px}
+    .room{display:inline-block;margin-bottom:18px;padding:6px 14px;border-radius:999px;
+      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+      letter-spacing:2px;font-weight:700}
+    .room:empty{display:none}
+    .btn{display:block;margin:8px 0;padding:13px 16px;border-radius:12px;text-decoration:none;
+      font-weight:700;font-size:16px;background:#2b6cff;color:#fff}
+    .btn.alt{background:transparent;border:1px solid rgba(255,255,255,.25)}
+    .stores{margin-top:18px;font-size:13px;opacity:.8}
+    .stores a{color:inherit;margin:0 6px}
+  </style>
+</head>
+<body>
+<main>
+  <div class="mark">T</div>
+  <h1>Joining Thulla</h1>
+  <p id="msg">Choose how you want to join.</p>
+  <div class="room" id="room"></div>
+  <a class="btn" id="web" href="/index.html">Play in browser</a>
+  <a class="btn alt" id="app" href="#">Open in app</a>
+  <div class="stores" id="stores">
+    Get the app:
+    <a id="play" href="#">Google Play</a> · <a id="ios" href="#">App Store</a>
+  </div>
+</main>
+
+<script>
+(function () {
+  // ===== EDIT THESE =====
+  var CONFIG = {
+    webPlayer: "/index.html",       // your WebGL page
+    param: "code",                  // query parameter carrying the room code
+    playStore: "https://play.google.com/store/apps/details?id=com.ahstudios.thulla",
+    appStore: "https://apps.apple.com/app/idYOUR_APP_ID"
+  };
+  // ======================
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  var code = (new URLSearchParams(location.search).get(CONFIG.param) ||
+              new URLSearchParams(location.search).get("room") || "").trim();
+  if (!/^[A-Za-z0-9_-]{1,32}$/.test(code)) code = "";
+  $("room").textContent = code;
+
+  // Play in browser: only goes when the player clicks, and carries the room code
+  var web = new URL(CONFIG.webPlayer, location.origin);
+  if (code) web.searchParams.set(CONFIG.param, code);
+  $("web").href = web.toString();
+
+  // Open in app: store link chosen by platform
+  var ua = navigator.userAgent || "";
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  $("play").href = CONFIG.playStore;
+  $("ios").href = CONFIG.appStore;
+
+  if (isAndroid) {
+    $("app").href = CONFIG.playStore;
+    $("stores").style.display = "none";
+  } else if (isIOS) {
+    $("app").href = CONFIG.appStore;
+    $("stores").style.display = "none";
+  } else {
+    // desktop: no single store applies, show both links instead of the button
+    $("app").style.display = "none";
+  }
+})();
+</script>
+</body>
+</html>

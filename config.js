@@ -11,9 +11,8 @@ window.THULLA_LINKS = {
   discord:   "https://discord.gg/Uf2tZAFqm",
 
 // Web player page (the homepage "Play Instantly" button and the invite page both use it)
-  play:      "/play.html",
-  webPlayer: "/play.html",
-  roomParam: "code"         // query parameter that carries the room code
+  webPlayer: "/",
+  roomParam: "code"        // query parameter that carries the room code
 };
 
 // Any element with data-link="playStore" (etc.) gets its href from the list above.

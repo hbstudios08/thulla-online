@@ -91,10 +91,17 @@ const FIREBASE_CONFIG = {
 
     // messages
     const ref = db.ref("chat/global").orderByChild("ts").limitToLast(SHOW_LAST);
-    ref.on("child_added", (snap) => addMessage(snap.val(), uid), (err) => {
+    let loaded = false;   // becomes true after the history has loaded
+    ref.on("child_added", (snap) => {
+      const m = snap.val();
+      addMessage(m, uid);
+      // tell the page about new messages from other people (used for the unread badge)
+      if (loaded && m.uid !== uid) window.dispatchEvent(new CustomEvent("thulla:chat", { detail: m }));
+    }, (err) => {
       console.error("[chat] message read denied:", err.code, err.message);
       setStatus("Can't read messages. Publish firebase-rules.json.");
     });
+    ref.once("value", () => { loaded = true; });
 
     // presence (online count)
     const me = db.ref("presence/" + uid);

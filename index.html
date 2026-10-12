@@ -411,10 +411,10 @@
       toast("Could not load the game. " + (msg || "Check your connection and try again."), "error");
     }
 
-    function startGame() {
+    function startGame(fromTap) {
       if (started) return;
       started = true;
-      enterFS();                                   // must happen inside the tap
+      if (fromTap === true) enterFS();             // full screen only works inside a tap
       home.classList.add("loading");
       history.pushState({ game: 1 }, "", location.href);   // so Back asks before leaving
       var script = document.createElement("script");
@@ -431,7 +431,18 @@
       };
       document.body.appendChild(script);
     }
-    $("start-btn").addEventListener("click", startGame);
+    $("start-btn").addEventListener("click", function () { startGame(true); });
+
+    // Arriving from an invite page ("Join in browser"): the player already tapped once,
+    // so start loading right away instead of asking for a second tap.
+    var autoplay = new URLSearchParams(location.search).get("autoplay") === "1" && !!code;
+    if (autoplay) {
+      startGame(false);
+      // full screen needs a tap, so on touch devices use the first tap inside the game
+      if (canFS && window.matchMedia && matchMedia("(pointer:coarse)").matches) {
+        document.addEventListener("click", function () { if (!isFS()) enterFS(); }, { once: true, capture: true });
+      }
+    }
   })();
   </script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>

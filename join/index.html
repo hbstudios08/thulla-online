@@ -111,7 +111,7 @@
 
   // Play in browser: only goes when the player clicks, and carries the room code
   var web = new URL(L.webPlayer || "/", location.origin);
-  if (code) web.searchParams.set(param, code);
+  if (code) { web.searchParams.set(param, code); web.searchParams.set("autoplay", "1"); }
   $("web").href = web.toString();
 
   // Community + store links

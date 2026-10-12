@@ -10,9 +10,10 @@ window.THULLA_LINKS = {
   whatsapp:  "https://chat.whatsapp.com/LfpTwCjOGQ50oLdOvhc8dk",
   discord:   "https://discord.gg/Uf2tZAFqm",
 
-  // Web player (used by the invite page)
-  webPlayer: "/index.html",
-  roomParam: "code"          // query parameter that carries the room code
+// Web player page (the homepage "Play Instantly" button and the invite page both use it)
+  play:      "/play.html",
+  webPlayer: "/play.html",
+  roomParam: "code"         // query parameter that carries the room code
 };
 
 // Any element with data-link="playStore" (etc.) gets its href from the list above.

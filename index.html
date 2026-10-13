@@ -217,7 +217,7 @@
   #home .tabs a{flex:0 0 auto;padding:9px 16px;border-radius:999px;border:1px solid transparent;color:var(--muted);
     text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap;transition:background .15s,color .15s}
   #home .tabs a:hover{color:var(--text)}
-  #home .tabs a[aria-selected="true"]{color:#fff;border-color:var(--line);
+  #home .tabs a[aria-current="page"]{color:#fff;border-color:var(--line);
     background:linear-gradient(135deg,rgba(225,29,72,.6),rgba(124,58,237,.6))}
   #home .panel[hidden]{display:none !important}
   #home.loading .topbar,#home.loading .seo{display:none}
@@ -288,14 +288,14 @@
     <!-- homepage (on top until the player taps Play) -->
     <div id="home">
       <header class="topbar">
-        <nav class="tabs" role="tablist" aria-label="Site sections">
-          <a role="tab" id="tab-play" href="#play" data-tab="play" aria-selected="true">Play</a>
-          <a role="tab" id="tab-how" href="#how-to-play" data-tab="how" aria-selected="false">How to Play</a>
-          <a role="tab" id="tab-rules" href="#rules" data-tab="rules" aria-selected="false">Rules</a>
-          <a role="tab" id="tab-faq" href="#faq" data-tab="faq" aria-selected="false">FAQ</a>
+        <nav class="tabs" aria-label="Site sections">
+          <a href="/" aria-current="page">Play</a>
+          <a href="/how-to-play">How to Play</a>
+          <a href="/rules">Rules</a>
+          <a href="/faq">FAQ</a>
         </nav>
       </header>
-      <main class="panel" id="panel-play" data-panel="play">
+      <main>
         <section class="hero">
           <div class="fan" aria-hidden="true">
             <div class="pc"><span class="rk">A</span>♥</div>
@@ -334,38 +334,10 @@
         </section>
       </main>
 
-      <section class="panel seo" id="panel-how" data-panel="how" aria-labelledby="how">
-        <h2 id="how">How to play Thulla online</h2>
-        <ol>
-          <li>Tap <strong>Play Instantly</strong> and create a room, or open a friend's invite link to join theirs.</li>
-          <li>Share the room link on WhatsApp or Discord so your friends can join.</li>
-          <li>Play your cards, talk over voice chat, and try not to be the last player holding cards.</li>
-        </ol>
-        <p><a href="#play" data-tab="play">&#9654; Play now</a></p>
-      </section>
-
-      <section class="panel seo" id="panel-rules" data-panel="rules" aria-labelledby="rules">
-        <h2 id="rules">Thulla rules</h2>
-        <!-- Adjust these to match the rules your game actually uses -->
-        <ul>
-          <li>A standard 52-card deck is dealt among the players.</li>
-          <li>Each round, players play a card of the suit that was led. If you have none, you may play any card.</li>
-          <li>If everyone follows suit, the round's cards are discarded and the highest card leads next.</li>
-          <li>If someone could not follow suit, the player with the highest card of the led suit picks up the round's cards.</li>
-          <li>Get rid of all your cards first to win. The last player holding cards is the Thulla.</li>
-        </ul>
-        <p><a href="#play" data-tab="play">&#9654; Play now</a></p>
-      </section>
-
-      <section class="panel seo" id="panel-faq" data-panel="faq" aria-labelledby="faq">
-        <h2 id="faq">Frequently asked questions</h2>
-        <h3>Is Thulla Online free?</h3>
-        <p>Yes. You can play in your browser with no download, or install the free app on Android and iOS.</p>
-        <h3>Is Thulla the same as Bhabhi or Get Away?</h3>
-        <p>They are regional names for the same family of games. House rules vary a little between regions.</p>
-        <h3>Can I play with friends?</h3>
-        <p>Yes. Create a room, share the invite link, and play together with voice chat.</p>
-        <p><a href="#play" data-tab="play">&#9654; Play now</a></p>
+      <section class="seo" aria-labelledby="about">
+        <h2 id="about">Play Thulla online with friends</h2>
+        <p>Thulla is a classic card game where you try to get rid of all your cards before everyone else. On Thulla Online you can create a room, share the link on WhatsApp or Discord, and play together for free in your browser or on Android and iOS, with voice chat.</p>
+        <p>New to the game? Start with the <a href="/how-to-play">step-by-step guide</a>, read the <a href="/rules">full Thulla rules</a>, or check the <a href="/faq">FAQ</a>.</p>
       </section>
 
       <footer>© AHSTUDIOS</footer>
@@ -541,34 +513,6 @@
         document.addEventListener("click", function () { if (!isFS()) enterFS(); }, { once: true, capture: true });
       }
     }
-  })();
-  </script>
-  <script>
-  (function () {
-    var home = document.getElementById("home");
-    var tabs = home.querySelectorAll(".tabs [data-tab]");
-    var panels = home.querySelectorAll(".panel");
-    var alias = { "play": "play", "how": "how", "how-to-play": "how", "rules": "rules", "faq": "faq" };
-    function show(name, updateUrl) {
-      if (!alias[name]) name = "play";
-      name = alias[name];
-      panels.forEach(function (p) { p.hidden = p.getAttribute("data-panel") !== name; });
-      tabs.forEach(function (t) { t.setAttribute("aria-selected", t.getAttribute("data-tab") === name ? "true" : "false"); });
-      home.scrollTop = 0;
-      if (updateUrl) {
-        try {
-          var hash = name === "play" ? "" : (name === "how" ? "#how-to-play" : "#" + name);
-          history.replaceState(history.state, "", location.pathname + location.search + hash);
-        } catch (e) {}
-      }
-    }
-    home.addEventListener("click", function (e) {
-      var a = e.target.closest && e.target.closest("[data-tab]");
-      if (!a || !home.contains(a)) return;
-      e.preventDefault();
-      show(a.getAttribute("data-tab"), true);
-    });
-    show(location.hash.replace("#", ""), false);
   })();
   </script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>

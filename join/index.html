@@ -3,138 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Join my Thulla game</title>
-  <meta name="description" content="You're invited to play Thulla online. Tap to join the game in your browser or get the app.">
-  <meta name="theme-color" content="#14061f">
-  <meta property="og:title" content="Join my Thulla game">
-  <meta property="og:description" content="You're invited to play Thulla online. Tap to join in your browser.">
-  <meta property="og:type" content="website">
   <meta name="robots" content="noindex">
-  <link rel="shortcut icon" href="/TemplateData/favicon.ico">
+  <title>Thulla Online</title>
+  <link rel="canonical" href="https://thulla.online/">
   <style>
-    :root{
-      color-scheme:dark;
-      --bg1:#12061f; --bg2:#1d0a33;
-      --red:#e11d48; --red-soft:#ff4d6d; --purple:#7c3aed; --purple-soft:#b57bff;
-      --text:#f6f0ff; --muted:rgba(246,240,255,.7); --line:rgba(255,255,255,.16);
-    }
-    *{box-sizing:border-box;margin:0}
-    body{
-      min-height:100vh;display:grid;place-items:center;padding:24px 20px;
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);
-      background:
-        radial-gradient(900px 500px at 15% -10%, rgba(225,29,72,.35), transparent 60%),
-        radial-gradient(900px 600px at 95% 10%, rgba(124,58,237,.40), transparent 60%),
-        linear-gradient(180deg,var(--bg1),var(--bg2));
-      background-attachment:fixed;
-    }
-    main{width:100%;max-width:400px;text-align:center}
-    .mark{width:60px;height:60px;margin:0 auto 14px;border-radius:16px;display:grid;place-items:center;
-      font-size:30px;font-weight:800;background:linear-gradient(135deg,var(--red),var(--purple));
-      box-shadow:0 10px 30px rgba(190,40,120,.45)}
-    h1{font-size:26px;font-weight:800;letter-spacing:-.5px;line-height:1.2;
-      background:linear-gradient(90deg,var(--red-soft),var(--purple-soft));
-      -webkit-background-clip:text;background-clip:text;color:transparent}
-    .sub{margin:8px 0 16px;font-size:15px;color:var(--muted)}
-    .room{display:block;width:max-content;margin:0 auto 20px;padding:7px 18px;border-radius:999px;
-      background:rgba(255,255,255,.08);border:1px solid var(--line);font-size:18px;font-weight:800;letter-spacing:3px}
-    .room:empty{display:none}
-
-    .btn{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px 0;padding:15px 16px;
-      border-radius:14px;text-decoration:none;font-weight:700;font-size:17px;color:#fff;
-      background:linear-gradient(135deg,var(--red),var(--purple));box-shadow:0 10px 30px rgba(190,40,120,.4);
-      transition:transform .15s ease,filter .15s ease}
-    .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
-    .btn.alt{background:rgba(255,255,255,.06);border:1px solid var(--line);box-shadow:none;font-size:16px}
-    .btn.alt:hover{border-color:var(--purple-soft)}
-
-    .label{margin:26px 0 10px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
-    .community{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .community a{padding:12px 8px;border-radius:14px;text-decoration:none;font-weight:600;font-size:15px;
-      color:inherit;border:1px solid var(--line);background:rgba(255,255,255,.06);
-      transition:transform .15s ease,border-color .15s ease}
-    .community a:hover{transform:translateY(-2px)}
-    #wa:hover{border-color:var(--red-soft)}
-    #dc:hover{border-color:var(--purple-soft)}
-    .stores{margin-top:18px;font-size:13px;color:var(--muted)}
-    .stores a{color:inherit;margin:0 6px}
-    .stores a:hover{color:var(--text)}
-    .home{display:inline-block;margin-top:22px;font-size:13px;color:var(--muted);text-decoration:none}
-    .home:hover{color:var(--text)}
-    a:focus-visible{outline:3px solid var(--purple-soft);outline-offset:3px}
-    @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+    body{margin:0;min-height:100vh;display:grid;place-items:center;text-align:center;padding:24px;
+      background:linear-gradient(180deg,#12061f,#1d0a33);color:#f6f0ff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+    a{color:#ff4d6d;font-weight:700}
   </style>
-  <script src="/config.js"></script>
 </head>
 <body>
-<main>
-  <div class="mark">T</div>
-  <h1 id="title">You're invited to play Thulla</h1>
-  <p class="sub" id="msg">Choose how you want to join.</p>
-  <div class="room" id="room"></div>
-
-  <a class="btn" id="web" href="/">▶&nbsp; Play in browser</a>
-  <a class="btn alt" id="app" href="#">Open in app</a>
-
-  <div class="label">Find players and game times</div>
-  <div class="community">
-    <a id="wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
-    <a id="dc" href="#" target="_blank" rel="noopener">🎮 Discord</a>
-  </div>
-
-  <div class="stores" id="stores">
-    Get the app:
-    <a id="play" href="#">Google Play</a> · <a id="ios" href="#">App Store</a>
-  </div>
-
-  <a class="home" href="/">← Thulla home</a>
-</main>
-
-<script>
-(function () {
-  var L = window.THULLA_LINKS || {};   // all links come from /config.js
-  var $ = function (id) { return document.getElementById(id); };
-
-  var param = L.roomParam || "code";
-  var code = (new URLSearchParams(location.search).get(param) ||
-              new URLSearchParams(location.search).get("room") || "").trim();
-  if (!/^[A-Za-z0-9_-]{1,32}$/.test(code)) code = "";
-  $("room").textContent = code;
-
-  if (code) {
-    $("msg").textContent = "A friend is waiting for you in room:";
-    $("web").innerHTML = "▶&nbsp; Join in browser";
-    document.title = "Join Thulla room " + code;
-  } else {
-    $("title").textContent = "Play Thulla";
-  }
-
-  // Play in browser: only goes when the player clicks, and carries the room code
-  var web = new URL(L.webPlayer || "/", location.origin);
-  if (code) { web.searchParams.set(param, code); web.searchParams.set("autoplay", "1"); }
-  $("web").href = web.toString();
-
-  // Community + store links
-  $("wa").href = L.whatsapp || "#";
-  $("dc").href = L.discord || "#";
-  $("play").href = L.playStore || "#";
-  $("ios").href = L.appStore || "#";
-
-  // Open in app: store link chosen by platform
-  var ua = navigator.userAgent || "";
-  var isAndroid = /Android/i.test(ua);
-  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-
-  if (isAndroid) {
-    $("app").href = L.playStore || "#";
-    $("stores").style.display = "none";
-  } else if (isIOS) {
-    $("app").href = L.appStore || "#";
-    $("stores").style.display = "none";
-  } else {
-    $("app").style.display = "none";   // desktop: show both store links instead
-  }
-})();
-</script>
+  <main>
+    <h1>Opening Thulla&hellip;</h1>
+    <p id="msg">If nothing happens, <a href="/">go to the homepage</a>.</p>
+  </main>
+  <noscript><meta http-equiv="refresh" content="0; url=/"></noscript>
+  <script>
+    (function () {
+      var code = (new URLSearchParams(location.search).get("code") || "").trim();
+      if (/^[A-Za-z0-9_-]{1,32}$/.test(code)) {
+        // invite link: open the web game and join the room straight away
+        location.replace("/?code=" + encodeURIComponent(code) + "&autoplay=1");
+      } else if (location.pathname.indexOf("/join") === 0) {
+        location.replace("/");
+      } else {
+        document.querySelector("h1").textContent = "Page not found";
+      }
+    })();
+  </script>
 </body>
 </html>

@@ -2,15 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Thulla Online | Play the classic card game with friends</title>
   <meta name="description" content="Play Thulla online with friends. Free multiplayer card game with voice chat. Play instantly in your browser or download the app.">
   <meta name="theme-color" content="#14061f">
-  <meta property="og:title" content="Thulla Online">
-  <meta property="og:description" content="The classic card game, online with friends. Play instantly in your browser.">
+  <link rel="canonical" href="https://thulla.online/">
+  
   <meta property="og:type" content="website">
-  <script>(function(s){s.dataset.zone='12015953',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <meta property="og:site_name" content="Thulla Online">
+  <meta property="og:url" content="https://thulla.online/">
+  <meta property="og:title" content="Thulla Online | Play the classic card game with friends">
+  <meta property="og:description" content="The classic card game, online with friends. Play instantly in your browser.">
+  <meta property="og:image" content="https://thulla.online/og-image.png"><!-- create a 1200x630 PNG -->
+  <meta property="og:image:alt" content="Thulla Online card game">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thulla Online | Play the classic card game with friends">
+  <meta name="twitter:description" content="The classic card game, online with friends. Play instantly in your browser.">
+  <meta name="twitter:image" content="https://thulla.online/og-image.png">
+  
+  <link rel="icon" href="TemplateData/favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"><!-- 180x180 PNG -->
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Thulla Multiplayer",
+    "url": "https://thulla.online/",
+    "description": "Free multiplayer Thulla card game with voice chat. Play in your browser or on mobile.",
+    "genre": "Card game",
+    "playMode": "MultiPlayer",
+    "applicationCategory": "Game",
+    "gamePlatform": ["Web browser", "Android", "iOS"],
+    "operatingSystem": "Android, iOS, Web",
+    "inLanguage": "en",
+    "publisher": { "@type": "Organization", "name": "AHSTUDIOS" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "sameAs": [
+      "PASTE_GOOGLE_PLAY_URL",
+      "PASTE_APP_STORE_URL"
+    ]
+  }
+  </script>
   <style>
     :root{
       --bg1:#12061f; --bg2:#1d0a33;
@@ -173,6 +206,27 @@
       #chat-panel{top:6px;bottom:6px}
     }
     @media (prefers-reduced-motion:reduce){.pc,#rotate-hint .ph{animation:none}*{transition:none !important}}
+
+ block -->
+<style>
+  #home .topbar{position:sticky;top:0;z-index:5;background:var(--glass);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line)}
+  #home .tabs{display:flex;gap:4px;max-width:720px;margin:0 auto;padding:8px 12px;overflow-x:auto;scrollbar-width:none;
+    justify-content:center}
+  #home .tabs::-webkit-scrollbar{display:none}
+  #home .tabs a{flex:0 0 auto;padding:9px 16px;border-radius:999px;border:1px solid transparent;color:var(--muted);
+    text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap;transition:background .15s,color .15s}
+  #home .tabs a:hover{color:var(--text)}
+  #home .tabs a[aria-current="page"]{color:#fff;border-color:var(--line);
+    background:linear-gradient(135deg,rgba(225,29,72,.6),rgba(124,58,237,.6))}
+  #home .panel[hidden]{display:none !important}
+  #home.loading .topbar,#home.loading .seo{display:none}
+  #home .seo{flex:1 0 auto;max-width:720px;width:100%;margin:0 auto;padding:28px 20px 32px;color:var(--muted);line-height:1.6;font-size:15px}
+  #home .seo h2{font-size:24px;margin:0 0 12px;color:var(--text)}
+  #home .seo h3{font-size:16px;margin:18px 0 4px;color:var(--text)}
+  #home .seo ol,#home .seo ul{padding-left:20px}
+  #home .seo li{margin:6px 0}
+  #home .seo a{color:var(--red-soft);font-weight:700;text-decoration:none}
   </style>
   <script src="config.js"></script>
 </head>
@@ -233,6 +287,14 @@
 
     <!-- homepage (on top until the player taps Play) -->
     <div id="home">
+      <header class="topbar">
+        <nav class="tabs" aria-label="Site sections">
+          <a href="/" aria-current="page">Play</a>
+          <a href="/how-to-play">How to Play</a>
+          <a href="/rules">Rules</a>
+          <a href="/faq">FAQ</a>
+        </nav>
+      </header>
       <main>
         <section class="hero">
           <div class="fan" aria-hidden="true">
@@ -271,6 +333,13 @@
           </div>
         </section>
       </main>
+
+      <section class="seo" aria-labelledby="about">
+        <h2 id="about">Play Thulla online with friends</h2>
+        <p>Thulla is a classic card game where you try to get rid of all your cards before everyone else. On Thulla Online you can create a room, share the link on WhatsApp or Discord, and play together for free in your browser or on Android and iOS, with voice chat.</p>
+        <p>New to the game? Start with the <a href="/how-to-play">step-by-step guide</a>, read the <a href="/rules">full Thulla rules</a>, or check the <a href="/faq">FAQ</a>.</p>
+      </section>
+
       <footer>© AHSTUDIOS</footer>
 
       <div id="loader">

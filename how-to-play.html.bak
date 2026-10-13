@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to Play Thulla Online | Step-by-Step Guide</title>
+<meta name="description" content="Learn how to play Thulla online in minutes. Create a room, invite friends, play your cards and win. Free in your browser, no download needed.">
+<meta name="theme-color" content="#14061f">
+<link rel="canonical" href="https://thulla.online/how-to-play">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Thulla Online">
+<meta property="og:url" content="https://thulla.online/how-to-play">
+<meta property="og:title" content="How to Play Thulla Online | Step-by-Step Guide">
+<meta property="og:description" content="Learn how to play Thulla online in minutes. Create a room, invite friends, play your cards and win. Free in your browser, no download needed.">
+<meta property="og:image" content="https://thulla.online/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Play Thulla Online | Step-by-Step Guide">
+<meta name="twitter:description" content="Learn how to play Thulla online in minutes. Create a room, invite friends, play your cards and win. Free in your browser, no download needed.">
+<meta name="twitter:image" content="https://thulla.online/og-image.png">
+<link rel="icon" href="/TemplateData/favicon.ico">
+<link rel="stylesheet" href="/pages.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Thulla Online",
+      "item": "https://thulla.online/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "How to Play Thulla Online",
+      "item": "https://thulla.online/how-to-play"
+    }
+  ]
+}
+</script>
+<script src="/config.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="tabs" aria-label="Site sections">
+      <a href="/">Play</a>
+      <a href="/how-to-play" aria-current="page">How to Play</a>
+      <a href="/rules">Rules</a>
+      <a href="/faq">FAQ</a>
+  </nav>
+</header>
+<main>
+  <p class="crumbs"><a href="/">Thulla Online</a> &rsaquo; How to Play Thulla Online</p>
+  <h1>How to Play Thulla Online</h1>
+  <p class="lead">Thulla is a classic trick-taking card game where the goal is simple: get rid of all your cards before everyone else. Here is how to play Thulla online with friends, from opening a room to winning your first game.</p>
+
+  <h2>What you need</h2>
+  <ul>
+    <li>A phone, tablet or computer with a modern browser, or the free Thulla app on Android or iOS.</li>
+    <li>A few friends, or other players to join your room.</li>
+    <li>Landscape orientation on a phone gives the best view of your cards.</li>
+  </ul>
+
+  <h2>Step 1: Open the game</h2>
+  <p>Go to <a href="/">thulla.online</a> and tap <strong>Play Instantly</strong>. The game opens full screen in your browser and nothing needs to be installed. If you prefer, install the app from Google Play or the App Store.</p>
+
+  <h2>Step 2: Create or join a room</h2>
+  <p>Create a new room to host your own game, or join an existing one. Every room has a short room code.</p>
+
+  <h2>Step 3: Invite your friends</h2>
+  <p>Share the room link on WhatsApp, Discord or any chat app. When a friend opens the link, the room code is filled in and they can join in one tap, either in the browser or in the app.</p>
+
+  <h2>Step 4: Play your cards</h2>
+  <ol>
+    <li>The cards are dealt among all the players.</li>
+    <li>On your turn, play a card of the same suit that was led.</li>
+    <li>If you have no card of that suit, you can play any other card.</li>
+    <li>When a round ends, either the cards are discarded or one player picks them up. See the <a href="/rules">full rules</a> for exactly how this works.</li>
+  </ol>
+
+  <h2>Step 5: Win the game</h2>
+  <p>Keep playing rounds until you have no cards left. Players leave the game as they run out of cards, and the last player still holding cards is the Thulla.</p>
+
+  <div class="box">
+    <h2>Beginner tips</h2>
+    <ul>
+      <li>Pay attention to which suits have already been played. It tells you what your opponents can still follow with.</li>
+      <li>Try not to be stuck with too many high cards near the end, because high cards are the ones that take the pile.</li>
+      <li>When you cannot follow suit, use the chance to get rid of a dangerous high card.</li>
+      <li>Use voice chat to play with friends, or just to find a game.</li>
+    </ul>
+  </div>
+
+  <h2>Keep reading</h2>
+  <div class="related"><a href="/rules">Rules<span>The full Thulla card game rules</span></a><a href="/faq">FAQ<span>Quick answers to common questions</span></a></div>
+  <section class="cta" aria-label="Play now">
+    <h2>Ready to play Thulla?</h2>
+    <p>Free in your browser, no download needed. Or get the app.</p>
+    <a class="btn" href="/">&#9654;&nbsp; Play Instantly</a><br>
+    <a class="btn alt" href="#" data-link="playStore" target="_blank" rel="noopener">Google Play</a>
+    <a class="btn alt" href="#" data-link="appStore" target="_blank" rel="noopener">App Store</a>
+  </section>
+</main>
+<footer>
+  <nav aria-label="Footer">
+    <a href="/">Play</a>
+    <a href="/how-to-play">How to Play</a>
+    <a href="/rules">Rules</a>
+    <a href="/faq">FAQ</a>
+  </nav>
+  &copy; AHSTUDIOS
+</footer>
+<script>
+(function () {
+  var L = window.THULLA_LINKS || {};
+  document.querySelectorAll("[data-link]").forEach(function (a) {
+    var u = L[a.getAttribute("data-link")];
+    if (u) a.href = u; else a.style.display = "none";
+  });
+})();
+</script>
+</body>
+</html>

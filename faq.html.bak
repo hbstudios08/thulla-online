@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thulla FAQ | Common Questions About Thulla Online</title>
+<meta name="description" content="Answers about Thulla Online: is it free, how to invite friends, voice chat, supported devices, and how Thulla differs from Bhabhi and Get Away.">
+<meta name="theme-color" content="#14061f">
+<link rel="canonical" href="https://thulla.online/faq">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Thulla Online">
+<meta property="og:url" content="https://thulla.online/faq">
+<meta property="og:title" content="Thulla FAQ | Common Questions About Thulla Online">
+<meta property="og:description" content="Answers about Thulla Online: is it free, how to invite friends, voice chat, supported devices, and how Thulla differs from Bhabhi and Get Away.">
+<meta property="og:image" content="https://thulla.online/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Thulla FAQ | Common Questions About Thulla Online">
+<meta name="twitter:description" content="Answers about Thulla Online: is it free, how to invite friends, voice chat, supported devices, and how Thulla differs from Bhabhi and Get Away.">
+<meta name="twitter:image" content="https://thulla.online/og-image.png">
+<link rel="icon" href="/TemplateData/favicon.ico">
+<link rel="stylesheet" href="/pages.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Thulla Online",
+      "item": "https://thulla.online/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Thulla Online FAQ",
+      "item": "https://thulla.online/faq"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Thulla Online free to play?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can play Thulla in your browser for free, and the mobile app is free to download on Android and iOS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to download anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Tap Play Instantly on the homepage and the game opens in your browser. The app is optional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I play with friends?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Create a room and share the invite link on WhatsApp, Discord or any other chat app. Your friends open the link and join the same room with one tap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I join a friend's room?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open the invite link your friend sent you. The room code is filled in automatically, so you only need to choose to join in the browser or in the app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there voice chat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Thulla Online supports voice chat so you can talk with the other players during the game."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which devices does Thulla work on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can play in a modern browser on a phone, tablet or computer. There are also apps for Android and iOS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Thulla the same as Bhabhi or Get Away?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are regional names for the same family of card games. The main idea is identical, but small house rules can differ between regions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who goes first in Thulla?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In most versions, the player holding the Ace of Spades starts the first round. See the rules page for the full explanation of how a round works."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I win at Thulla?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Get rid of all your cards before the other players. The last player left holding cards is the Thulla and loses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "The game is not loading. What should I do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check your internet connection and reload the page. On a phone, rotate to landscape and make sure your browser is up to date. If the problem continues, try the Android or iOS app."
+      }
+    }
+  ]
+}
+</script>
+<script src="/config.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="tabs" aria-label="Site sections">
+      <a href="/">Play</a>
+      <a href="/how-to-play">How to Play</a>
+      <a href="/rules">Rules</a>
+      <a href="/faq" aria-current="page">FAQ</a>
+  </nav>
+</header>
+<main>
+  <p class="crumbs"><a href="/">Thulla Online</a> &rsaquo; Thulla Online FAQ</p>
+  <h1>Thulla Online FAQ</h1>
+  <p class="lead">Quick answers to the most common questions about Thulla Online and the Thulla card game.</p>
+
+  <h2>Is Thulla Online free to play?</h2>
+  <p>Yes. You can play Thulla in your browser for free, and the mobile app is free to download on Android and iOS.</p>
+
+  <h2>Do I need to download anything?</h2>
+  <p>No. Tap Play Instantly on the homepage and the game opens in your browser. The app is optional.</p>
+
+  <h2>How do I play with friends?</h2>
+  <p>Create a room and share the invite link on WhatsApp, Discord or any other chat app. Your friends open the link and join the same room with one tap.</p>
+
+  <h2>How do I join a friend&#x27;s room?</h2>
+  <p>Open the invite link your friend sent you. The room code is filled in automatically, so you only need to choose to join in the browser or in the app.</p>
+
+  <h2>Is there voice chat?</h2>
+  <p>Yes. Thulla Online supports voice chat so you can talk with the other players during the game.</p>
+
+  <h2>Which devices does Thulla work on?</h2>
+  <p>You can play in a modern browser on a phone, tablet or computer. There are also apps for Android and iOS.</p>
+
+  <h2>Is Thulla the same as Bhabhi or Get Away?</h2>
+  <p>They are regional names for the same family of card games. The main idea is identical, but small house rules can differ between regions.</p>
+
+  <h2>Who goes first in Thulla?</h2>
+  <p>In most versions, the player holding the Ace of Spades starts the first round. See the rules page for the full explanation of how a round works.</p>
+
+  <h2>How do I win at Thulla?</h2>
+  <p>Get rid of all your cards before the other players. The last player left holding cards is the Thulla and loses.</p>
+
+  <h2>The game is not loading. What should I do?</h2>
+  <p>Check your internet connection and reload the page. On a phone, rotate to landscape and make sure your browser is up to date. If the problem continues, try the Android or iOS app.</p>
+
+  <p>Still learning? Read the <a href="/how-to-play">step-by-step guide</a> or the <a href="/rules">full rules</a>.</p>
+
+  <h2>Keep reading</h2>
+  <div class="related"><a href="/how-to-play">How to Play<span>Step-by-step guide to your first game</span></a><a href="/rules">Rules<span>The full Thulla card game rules</span></a></div>
+  <section class="cta" aria-label="Play now">
+    <h2>Ready to play Thulla?</h2>
+    <p>Free in your browser, no download needed. Or get the app.</p>
+    <a class="btn" href="/">&#9654;&nbsp; Play Instantly</a><br>
+    <a class="btn alt" href="#" data-link="playStore" target="_blank" rel="noopener">Google Play</a>
+    <a class="btn alt" href="#" data-link="appStore" target="_blank" rel="noopener">App Store</a>
+  </section>
+</main>
+<footer>
+  <nav aria-label="Footer">
+    <a href="/">Play</a>
+    <a href="/how-to-play">How to Play</a>
+    <a href="/rules">Rules</a>
+    <a href="/faq">FAQ</a>
+  </nav>
+  &copy; AHSTUDIOS
+</footer>
+<script>
+(function () {
+  var L = window.THULLA_LINKS || {};
+  document.querySelectorAll("[data-link]").forEach(function (a) {
+    var u = L[a.getAttribute("data-link")];
+    if (u) a.href = u; else a.style.display = "none";
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thulla Rules | Complete Card Game Rules Explained</title>
+<meta name="description" content="Thulla card game rules explained: dealing, following suit, how rounds end, and how to win or lose. Also known as Bhabhi and Get Away.">
+<meta name="theme-color" content="#14061f">
+<link rel="canonical" href="https://thulla.online/rules">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Thulla Online">
+<meta property="og:url" content="https://thulla.online/rules">
+<meta property="og:title" content="Thulla Rules | Complete Card Game Rules Explained">
+<meta property="og:description" content="Thulla card game rules explained: dealing, following suit, how rounds end, and how to win or lose. Also known as Bhabhi and Get Away.">
+<meta property="og:image" content="https://thulla.online/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Thulla Rules | Complete Card Game Rules Explained">
+<meta name="twitter:description" content="Thulla card game rules explained: dealing, following suit, how rounds end, and how to win or lose. Also known as Bhabhi and Get Away.">
+<meta name="twitter:image" content="https://thulla.online/og-image.png">
+<link rel="icon" href="/TemplateData/favicon.ico">
+<link rel="stylesheet" href="/pages.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Thulla Online",
+      "item": "https://thulla.online/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Thulla Rules",
+      "item": "https://thulla.online/rules"
+    }
+  ]
+}
+</script>
+<script src="/config.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <nav class="tabs" aria-label="Site sections">
+      <a href="/">Play</a>
+      <a href="/how-to-play">How to Play</a>
+      <a href="/rules" aria-current="page">Rules</a>
+      <a href="/faq">FAQ</a>
+  </nav>
+</header>
+<main>
+  <p class="crumbs"><a href="/">Thulla Online</a> &rsaquo; Thulla Rules</p>
+  <h1>Thulla Rules</h1>
+  <p class="lead">Thulla is a card game for several players using a standard 52-card deck. This page explains the Thulla rules in full: how cards are dealt, how a round works, and how the game is won and lost.</p>
+
+  <div class="box">
+    <h2>Rules at a glance</h2>
+    <ul>
+      <li>Standard 52-card deck, dealt among all the players.</li>
+      <li>Follow the suit that was led if you can.</li>
+      <li>If you cannot follow suit, you may play any card.</li>
+      <li>The highest card of the led suit decides who leads next.</li>
+      <li>Get rid of all your cards to win. The last player with cards is the Thulla.</li>
+    </ul>
+  </div>
+
+  <h2>Objective</h2>
+  <p>The goal is to empty your hand. Players who run out of cards are safe, and the last player left holding cards loses and is called the Thulla.</p>
+
+  <h2>The deck and the deal</h2>
+  <p>The game uses a standard 52-card deck. Aces are high. All the cards are dealt among the players, so some players may hold one more card than others depending on the number of players.</p>
+
+  <h2>Starting the game</h2>
+  <p>In most versions of the game, the player holding the Ace of Spades plays first and must start the opening round with it.</p>
+
+  <h2>Playing a round</h2>
+  <p>The first card played in a round decides the suit for that round. Going around the table, each player plays one card:</p>
+  <ul>
+    <li><strong>If you have the suit:</strong> you must play a card of that suit.</li>
+    <li><strong>If you do not have the suit:</strong> you can play any card from your hand. This is often called cutting.</li>
+  </ul>
+
+  <h2>How a round ends</h2>
+  <h3>Everyone followed suit</h3>
+  <p>If every player played a card of the led suit, the cards from that round are discarded. The player who played the highest card of the suit leads the next round.</p>
+  <h3>Someone could not follow suit</h3>
+  <p>If any player played a different suit, the player with the highest card of the led suit must pick up all the cards played in that round. That player then leads the next round.</p>
+
+  <h2>Winning and losing</h2>
+  <p>A player is out of the game, and safe, as soon as their hand is empty. Play continues until only one player still holds cards. That player is the Thulla and loses the game.</p>
+
+  <h2>Other names for Thulla</h2>
+  <p>This family of games is played across South Asia and goes by several names, including Thulla, Bhabhi and Get Away. The core idea is the same everywhere, but small rules differ from region to region, such as who starts or what happens in the first round. The rules on this page describe how Thulla works on Thulla Online.</p>
+
+  <h2>Keep reading</h2>
+  <div class="related"><a href="/how-to-play">How to Play<span>Step-by-step guide to your first game</span></a><a href="/faq">FAQ<span>Quick answers to common questions</span></a></div>
+  <section class="cta" aria-label="Play now">
+    <h2>Ready to play Thulla?</h2>
+    <p>Free in your browser, no download needed. Or get the app.</p>
+    <a class="btn" href="/">&#9654;&nbsp; Play Instantly</a><br>
+    <a class="btn alt" href="#" data-link="playStore" target="_blank" rel="noopener">Google Play</a>
+    <a class="btn alt" href="#" data-link="appStore" target="_blank" rel="noopener">App Store</a>
+  </section>
+</main>
+<footer>
+  <nav aria-label="Footer">
+    <a href="/">Play</a>
+    <a href="/how-to-play">How to Play</a>
+    <a href="/rules">Rules</a>
+    <a href="/faq">FAQ</a>
+  </nav>
+  &copy; AHSTUDIOS
+</footer>
+<script>
+(function () {
+  var L = window.THULLA_LINKS || {};
+  document.querySelectorAll("[data-link]").forEach(function (a) {
+    var u = L[a.getAttribute("data-link")];
+    if (u) a.href = u; else a.style.display = "none";
+  });
+})();
+</script>
+</body>
+</html>
